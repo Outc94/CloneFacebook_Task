@@ -1,3 +1,39 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#main{
+    width: 30%;
+    float: right;
+    margin-right: 185px
+}
+.text{
+    width: 100%;
+    padding: 6px;
+    border-radius: 5px;
+    margin-bottom: 6px;
+    border:1px solid dimgray;
+}
+.name{
+    width: 49.5%;
+    padding: 6px;
+    border-radius: 5px;
+    margin-bottom: 6px;
+    border:1px solid dimgray;
+}
+.submit{
+    background: green;
+    color:beige;
+    padding-right:5px;
+    padding-left: 5px;
+    border-right: 3px;
+}
+#image{
+    width: 30%;
+    float: left;
+    margin: 9px;
+    height: 20px;
+}
+.users{
+    width: 40%;
+    float: left;
+}

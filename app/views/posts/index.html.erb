@@ -1,0 +1,29 @@
+
+<div id="main2">
+  <div id="left">
+    &nbsp
+  </div>
+
+  <div id="content">
+    <p id="notice"><%= notice %></p>
+    <h3><hr> Recent Posts<hr></h3>
+
+    <% @posts.each do |post| %>
+    <div class="content-content">
+      <p class="names"><%= post.user.firstname %> <%= post.user.lastname %></p><br>
+      <p class="content"><%= post.content %><br></p>
+      <%= image_tag post.image.url,style:"max-width:400px" %><br><br>
+      <%= link_to 'Show', post,class:'btn btn-warning' %>
+      <%if post.user == current_user %>
+        <%= link_to 'Edit', edit_post_path(post),class:'btn btn-success' %>
+        <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?'},class:'btn btn-danger' %><br>
+      <% end %>
+    </div>
+    <% end %>
+
+  </div>
+  <div id="right">
+  <br><br><br><br><br>
+  <%= link_to 'Add New Post', new_post_path,class:'btn btn-success' %>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+<div id="main2">
+<div id="left">
+&nbsp
+</div>
+<div id="content">
+<div class="content-content">
+<% if logged_in? %>
+<h1>welcome <%= @user.firstname %>!</h1>
+
+<p>email address: <%= @user.email %></p>
+</div>
+<div class="content-content">
+<h3><%= link_to 'View Recent Posts', posts_path %></h3>
+<% else %>
+<h1>welcome <%= @user.firstname %>!</h1>
+
+<p>email address: <%= @user.email %></p>
+<p>Please Log In</p>
+<% end %>
+<% flash.each do |key, value| %>
+    <%= content_tag(:div, value, class: "#{key}") %>
+  <% end %>
+</div>
+<div id="right"></div>
+</div>
+</div>

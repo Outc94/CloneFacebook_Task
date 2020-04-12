@@ -1,0 +1,26 @@
+<div id="main2">
+  <div id="left">
+    &nbsp
+  </div>
+  <div id="content">
+    <div class="content-content">
+      <hr>
+      <p id="notice"><%= notice %></p>
+      <hr>
+      <p class="names">
+      <strong>Posted by:</strong>
+      <%= @post.user.firstname %> <%= @post.user.lastname %>
+      </p>
+      <p>
+      <strong>Content:</strong>
+      <%= @post.content %>
+      </p>
+      <p>
+      <strong>Image:</strong>
+      <%= image_tag @post.image.url, style:"max-width:100%" %>
+      </p>
+      <%= link_to 'Back', posts_path,class:'btn btn-primary' %>
+    </div>
+  <div id="right"></div>
+  </div>
+</div>

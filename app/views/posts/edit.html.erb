@@ -1,0 +1,17 @@
+<div id="main2">
+  <div id="left">
+    &nbsp
+  </div>
+  <div id="content">
+    <div class="content-content">
+      <hr>
+      <h3>Editing Post</h3>
+      <hr>
+      <%= render 'form', post: @post %><br>
+
+      <%= link_to 'Show', @post,class:'btn btn-warning' %>
+      <%= link_to 'Back', posts_path,class:'btn btn-primary' %>
+    </div>
+  <div id="right"></div>
+  </div>
+</div>
