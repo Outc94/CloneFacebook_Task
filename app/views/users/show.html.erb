@@ -5,17 +5,17 @@
 <div id="content">
 <div class="content-content">
 <% if logged_in? %>
-<h1>welcome <%= @user.firstname %>!</h1>
+<h1>Welcome to Facebook Clone 2020 <%= @user.firstname %> !</h1>
 
-<p>email address: <%= @user.email %></p>
+<p>Your email Address is: <%= @user.email %></p>
 </div>
 <div class="content-content">
 <h3><%= link_to 'View Recent Posts', posts_path %></h3>
 <% else %>
-<h1>welcome <%= @user.firstname %>!</h1>
+<h1>Welcome to Facebook Clone 2020 <%= @user.firstname %>! </h1>
 
-<p>email address: <%= @user.email %></p>
-<p>Please Log In</p>
+<p>Your email Address is: <%= @user.email %></p>
+<p>Now you can LOGIN</p>
 <% end %>
 <% flash.each do |key, value| %>
     <%= content_tag(:div, value, class: "#{key}") %>

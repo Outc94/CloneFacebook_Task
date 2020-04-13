@@ -5,18 +5,18 @@
   </div>
 
   <div id="content">
-    <p id="notice"><%= notice %></p>
+    <p id="notice"></p>
     <h3><hr> Recent Posts<hr></h3>
 
     <% @posts.each do |post| %>
     <div class="content-content">
       <p class="names"><%= post.user.firstname %> <%= post.user.lastname %></p><br>
       <p class="content"><%= post.content %><br></p>
-      <%= image_tag post.image.url,style:"max-width:400px" %><br><br>
-      <%= link_to 'Show', post,class:'btn btn-warning' %>
+      <%= image_tag post.image.url,style:"max-width:500px" %><br><br>
+      <%= link_to 'Show', post,class:'btn btn-info' %>
       <%if post.user == current_user %>
         <%= link_to 'Edit', edit_post_path(post),class:'btn btn-success' %>
-        <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?'},class:'btn btn-danger' %><br>
+        <%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure you want to delete this post?'},class:'btn btn-danger' %><br>
       <% end %>
     </div>
     <% end %>

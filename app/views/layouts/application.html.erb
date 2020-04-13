@@ -18,17 +18,16 @@
   </button>
   <a class="navbar-brand" href="#" style="color:white;font-size:40px;margin-left:153px"><b>facebook</b></a>
 
-  <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-    <form class="form-inline my-2 my-lg-0">
       <% if logged_in? %>
-        <button style="color:beige;border:1px solid black;margin-left:800px"><%= link_to "Profile", user_path(current_user.id) %></button>
-        <button style="color:beige;border:1px solid black;margin-left:10px"><%= link_to "Logout", session_path(current_user.id), method: :delete %></button>
+      <div class= "navbar navbar-default">
+        <a ><%= link_to "Home", posts_path(current_user.id) %></a>
+        <a ><%= link_to "Profile", user_path(current_user.id) %></a>
+        <a ><%= link_to "Logout", session_path(current_user.id), method: :delete %></a>
+      </div>
       <% else %>
-        <button style="color:beige;border:1px solid black;margin-left:800px"><%= link_to "Login", new_session_path %></button>
-        <button style="color:beige;border:1px solid black;margin-left:10px"><%= link_to "SignUp", new_user_path %></button>
+        <button type="button" class="btn btn-default navbar-btn" style="color:white;font-size:15px;margin-left:800px"><%= link_to "Log In", new_session_path %></button>
+        <button type="button" class="btn btn-default navbar-btn" style="color:white;font-size:15px;margin-left:10px"><%= link_to "SignUp", new_user_path %></button>
       <% end %>
-    </form>
-  </div>
   </nav>
 
   <% flash.each do |key, value| %>
