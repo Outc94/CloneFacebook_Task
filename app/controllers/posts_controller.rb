@@ -3,10 +3,8 @@ class PostsController < ApplicationController
   def index
     @posts = Post.all
   end
-
   def show
   end
-
   def new
     if params[:back]
       @post = Post.new(post_params)
@@ -14,19 +12,24 @@ class PostsController < ApplicationController
       @post = Post.new
     end
   end
-
   def edit
   end
-
   def create
+    @post = Post.new(post_params)
     @post = current_user.posts.build(post_params)
+    respond_to do |format|
       if @post.save
-        redirect_to posts_path, notice: "Post was created SUCCESSFULLY."
+        format.html { redirect_to posts_path, notice: "Post was created SUCCESSFULLY." }
+        format.json { render :show, status: :created, location: @post }
       else
-        render :new
+        format.html { render :new }
+        format.json { render json: @post.errors, status: :unprocessable_entity }
       end
+    end
   end
-
+  def confirm
+    @post = Post.new(post_params)
+  end
   def update
     respond_to do |format|
       if @post.update(post_params)
@@ -38,7 +41,6 @@ class PostsController < ApplicationController
       end
     end
   end
-
   def destroy
     @post.destroy
     respond_to do |format|
@@ -48,9 +50,9 @@ class PostsController < ApplicationController
   end
   private
   def set_post
-  @post = Post.find(params[:id])
+    @post = Post.find(params[:id])
   end
   def post_params
-  params.require(:post).permit(:content, :image, :user_id)
+    params.require(:post).permit(:content, :image, :image_cache, :user_id)
   end
 end

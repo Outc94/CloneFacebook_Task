@@ -1,0 +1,25 @@
+<div id="main2">
+  <div id="left">
+    &nbsp
+  </div>
+  <div id="content">
+    <div class="content-content">
+<h3>Is It What You Want To Post ? </h3>
+
+<%= form_with(model: @post, url: posts_path, local:true) do |form| %>
+   <p>
+    <strong>Content:</strong>
+    <%= @post.content %>
+    <%= form.hidden_field :content %>
+   </p>
+    <p>
+    <strong>Image:</strong>
+    <%= image_tag(@post.image.url) if @post.image && @post.image.url %>
+    <%= form.hidden_field :image_cache,style:"max-width:100%" %>
+    </p>
+    <%= form.submit "Confirm", class:'btn btn-success'%>
+<% end %>
+
+<div id="right"></div>
+</div>
+</div>
