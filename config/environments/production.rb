@@ -13,6 +13,8 @@ Rails.application.configure do
 
   config.assets.compile = false
 
+  config.assets.initialize_on_precompile = false
+
   config.active_storage.service = :local
 
   config.log_level = :debug
